@@ -17,12 +17,11 @@ def solution(expression):
   global g_result
 
   expression = expression.rstrip('\n')
-  sequence = []
-  sequence.extend(ord(char) - ord('a') + 1 for char in expression)
-  for i, value in enumerate(sequence):
+  for i, char in enumerate(expression):
     # sum(a0 * r^0   ~   ai * r^i) / M
     # i의 최대값은 50
-    g_result += (value * pow(g_r, i)) % g_M
+    value = ord(char) - ord('a') + 1
+    g_result = (g_result + (value * pow(g_r, i))) % g_M
 
   # g_result %= g_M
   print(g_result)
