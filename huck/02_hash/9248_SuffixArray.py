@@ -1,3 +1,5 @@
+# Suffix tree를 찾아봐야겠ㄷㅏ..
+
 import sys
 import os
 
@@ -17,6 +19,8 @@ def getSuffixArrayFromString(string):
   suffixAray = sorted(range(1, len(string) + 1), key = lambda i: getStringFromSuffixArrayIndex(string, i))
   return suffixAray
 
+# O(N^2)
+# FIXME O(N)으로 고칠것
 def getLCPArrayFromSuffixArray(string, suffixArray):
   lcpArray = []
   for i, _ in enumerate(suffixArray[1:]):
