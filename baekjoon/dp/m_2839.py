@@ -6,30 +6,59 @@
 상근이가 설탕을 정확하게 N킬로그램 배달해야 할 때, 봉지 몇 개를 가져가면 되는지 그 수를 구하는 프로그램을 작성하시오.
 '''
 
-T = 3
-F = 5
-b = True
 
-response = 0
+def division(a, b):
+    quotient = a // b
+    remainder = a % b
+    return quotient, remainder
+
+def solution():
+    response = 0
+
+    a, b = division(request, 5)
+    if b == 0:
+        print(a)
+        return
+
+    req = request
+    while(req > 0):
+        req -= 5
+        response += 1
+        if req == 0:
+            print(response)
+            break
+        else:
+            a, b = division(req, 3)
+            if b == 0:
+                print(response + a)
+                return
+            else:
+                continue
+    
+    a, b = division(request, 3)
+    if b == 0:
+        print(a)
+        return
+    
+    print(-1)
+    return
+    
+    
 request = int(input())
+if 3 > request:
+    print(-1)
+elif 5000 < request:
+    print(-1)
+else: 
+    solution()
 
-while(b):
-    if request >= F:
-        response += 1
-        request -= 5
-        continue
-    elif request >= T:
-        response += 1
-        request -= 3
-        continue
-    elif request == 0:
-        print(response)
-        break
-    else:
-        print(-1)
-        break
 
 
 '''
-..? min/max 될 뻔
+1. 5로 나눠서 몫과 나머지를 구한다.
+2. 나머지가 0이 아니고 3보다 크다면 3으로 나눠본다.
+3. 3으로 나눴을 때 나머지가 0이라면 몫을 더한 나머지 리턴
+4. 3으로 나눠도 나머지가 0이 아니라면 처음부터 3으로만 나눠본다.
+5. 나머지가 0이라면 몫 리턴, 0이 아니라면 -1 리턴
+
 '''
