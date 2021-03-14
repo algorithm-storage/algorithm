@@ -22,18 +22,15 @@ def solution():
 
     req = request
     while(req > 0):
-        req -= 5
+        req -= 3
         response += 1
-        if req == 0:
-            print(response)
-            break
+
+        a,b = division(req, 5)
+        if b == 0:
+            print(response + a)
+            return
         else:
-            a, b = division(req, 3)
-            if b == 0:
-                print(response + a)
-                return
-            else:
-                continue
+            continue
     
     a, b = division(request, 3)
     if b == 0:
@@ -55,10 +52,6 @@ else:
 
 
 '''
-1. 5로 나눠서 몫과 나머지를 구한다.
-2. 나머지가 0이 아니고 3보다 크다면 3으로 나눠본다.
-3. 3으로 나눴을 때 나머지가 0이라면 몫을 더한 나머지 리턴
-4. 3으로 나눠도 나머지가 0이 아니라면 처음부터 3으로만 나눠본다.
-5. 나머지가 0이라면 몫 리턴, 0이 아니라면 -1 리턴
-
+가장 적은 횟수를 구하는 것임으로 while에서 
+3씩 제외하고 5로 나눴을 때 떨어지는 수가 해당 반복문 안에서 구할 수 있는 제일 적은 횟수
 '''
